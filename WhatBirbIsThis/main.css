@@ -1,0 +1,950 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	max-height: 100%;
+	overflow: hidden;
+}
+
+body {
+	display: flex;
+	justify-content: flex-start;
+
+	color: black;
+	/*height: 100vh;*/
+
+	font-family: 'Montserrat';
+	animation: lightChange 300s linear infinite;
+}
+
+* {
+	font-family: "Montserrat";
+}
+
+body * {
+	font-weight: 400;
+}
+
+*:focus {
+  outline:none !important;
+}
+
+#mainArt {
+	position: absolute;
+	right:0;
+}
+
+.pole, .wire {
+	position: absolute;
+	top: 10vh;
+	right: -8vh;
+	height: 210vh;
+	filter: invert(.6);
+}
+
+.pole {
+	filter: invert(.5);
+}
+
+.wire {
+}
+
+#wire1 { 
+}
+#wire2 { filter:; }
+#wire3 { filter:; }
+#wire4 { filter:; }
+
+.bird {
+	position: absolute;
+	height: 8vh;
+}
+
+#bird1 {
+	transform: 
+		translate(-38vh,11vh)
+		rotate(10deg)
+		;
+
+	animation: slowPulseB 5s infinite;
+}
+
+
+#bird2 {
+	transform: 
+		translate(-28vh,12vh)
+	;
+
+	animation: slowPulseBB 3s infinite 2s;
+}
+
+#bird3 {
+	transform: 
+		translate(-16vh,11vh)
+		scaleX(-1)
+	;
+
+	animation: slowPulseBBB 3s infinite 4s;
+}
+
+.bird:hover {
+	filter: invert(1);
+}
+
+.speechBubbleWrapper {
+	/*display: none;	*/
+	opacity: 0;
+	position: absolute;
+	transition: opacity .1s linear;
+}
+
+
+.speechBubble {
+	/* image taken from wikimedia commons */
+	position: absolute;
+	/*background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Speech_bubble.svg/1280px-Speech_bubble.svg.png');*/
+	background-size: 100%;
+	background-repeat: no-repeat;
+	/*background-origin: fixed;*/
+	height: 12vh;
+	width: 24vh;
+	transition: height .1s linear;
+}
+
+.speechBubbleWrapper p {
+	position: absolute;
+	width: 24vh;
+	font-size: 4vh;
+	transition: font-size .1s linear;
+}
+
+.tiny p {
+	font-size: 1vh;
+}
+
+.tiny .speechBubble {
+	height: 0vh;
+}
+
+
+/*#bubbleText1, #bubbleText2, #bubbleText3 {
+	font-size: 4vh;
+}*/
+
+#bubbleText1 {
+	transform: 
+		translate(-29vh,-1vh)
+	;
+}
+
+#bubbleText2 {
+	transform: 
+		translate(-20vh,-.5vh)
+	;
+}
+
+#bubbleText3 {
+	transform: 
+		translate(-34vh,-1vh)
+	;
+}
+
+#speechBubble1 {
+	transform: 
+		translate(-33vh,.5vh)
+	;
+}
+#speechBubble2 {
+	transform: 
+		translate(-24vh,1vh)
+	;
+}
+#speechBubble3 {
+	transform: 
+		translate(-36vh,.5vh)
+		scaleX(-1);
+	;
+}
+
+
+nav {
+	display: none;
+	position: absolute;
+	right: 2vh;
+	top: .2vh;
+	z-index: 12;
+}
+
+nav img {
+	height: 10vh;
+	width: 10vh;
+}
+
+#slider ul li ul {
+	
+}
+
+header {
+	position: absolute;
+	top: 5vh;
+	left: 5vw;
+
+	z-index: 2;
+	display: flex;
+	align-items: center;
+
+	width: 75%;
+	padding: 0 3vw 0 0;
+}
+
+header h1 {
+	flex: 1 1 100%;
+
+	font-size: 5vw;
+	text-transform: uppercase;
+	color: black;
+	letter-spacing: 4px;
+	margin: 0;
+}
+
+
+h1 span {
+	font-weight: 600;
+}
+
+#quizArea {
+	display: flex;
+
+	margin-top: 32vh;
+
+	height: 55vh;
+	width:100vw;
+}
+
+#toggle {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 40vh;
+
+	margin: 7vh 4vh 0 4vh;
+	flex: .1 1 5%;
+}
+
+/* custom radio buttons */
+#radioWrapperTop, #radioWrapperMid, #radioWrapperBot {
+	width: 100%;
+	height: 50%;
+	border: 2px solid #555;
+
+	font-size: 1vw;
+	filter: invert(.0);
+}
+
+/* 0 1 0 0 */
+#radioWrapperTop {
+	border-radius: 40% 40% 0 0;
+	border-bottom: none;
+}
+
+#radioWrapperMid {
+	border-top: none;
+	border-bottom: none;
+}
+
+#radioWrapperBot {
+	border-radius: 0 0 40% 40%;
+	border-top: none;
+}
+
+div span { 
+	display: flex;
+	align-items: center;
+	text-align: center;
+
+	height: 100%;
+}
+
+/* top radio button */
+#radioTop{
+	border-radius: 40% 40% 0 0;
+	/*border-bottom: 1px solid transparent;*/
+
+background: rgb(102,102,102);
+background: linear-gradient(0deg, rgba(140,140,140,1) 26%, rgba(125,125,125,1) 50%, rgba(105,105,105,1) 92%);
+}
+
+/* middle radio button */
+#radioMid{
+background: rgb(187,187,187);
+background: linear-gradient(0deg, rgba(170,170,170,1) 26%, rgba(150,150,150,1) 50%, rgba(125,125,125,1) 92%);
+	/*border-bottom: 1px solid transparent;*/
+}
+
+/* bottom radio button */
+#radioBot {
+	border-radius: 0 0 40% 40%;
+
+background: rgb(255,255,255);
+background: linear-gradient(0deg, rgba(210,210,210,1) 26%, rgba(180,180,180,1) 50%, rgba(160,160,160,1) 92%);
+}
+
+#toggle span:hover {
+	font-weight: bold;
+	font-size: 1vw;
+	filter: invert(1);
+}
+
+#toggle .chosen:hover {
+	font-size: 1vw;
+	filter: invert(0);
+}
+
+/* 0 0 1 0 */
+.chosen {
+	background: rgba( 255, 255, 255, .4);
+	font-weight: bold;
+	height: 96%;
+	border: 2px solid #222;
+	background: rgb(102,102,102);
+background: linear-gradient(0deg, rgba(120,120,120,1) 26%, rgba(105,105,105,1) 50%, rgba(95,95,95,1) 92%) !important;
+}
+
+#frame {
+	flex: 1 1 50%;
+	border-radius: 2vh;
+	z-index: 100;
+}
+
+#picture {
+	width: 100%;
+	height: 100%;
+
+	border-radius: 6px;
+
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position-x: center;
+}
+
+#checkMark {
+	display: none;
+
+	height: 100%;
+	width: 100%;
+}
+
+#soundImage {
+	background-image: url('https://cdn.pixabay.com/photo/2017/07/09/20/48/speaker-2488096_960_720.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-origin: center;
+	height: 90%;
+	width: 80%;
+	margin :auto;
+
+	transition: transform .08s linear;
+}
+
+#answerSection {
+	display: flex;
+	flex-direction: column; 
+	justify-content: space-between;
+
+	margin: 0 4vh 0 4vh;
+	flex: 1 1 26%;
+
+	z-index: 11;
+}
+
+#buttonHeader {
+	text-align: center;
+	flex: 1 1 10%;
+
+	font-weight: bold;
+	font-size: 5vh;
+}
+
+#buttonHeader h3 {
+	margin: 0 0 4vh 0;
+	text-transform: uppercase;
+}
+
+#buttons {
+	display: flex;
+	flex-direction: column; 
+	justify-content: space-between;
+
+	flex: 1 1 90%;
+}
+
+.answerButton {
+	padding: 2vh 0;
+
+	letter-spacing: 4px;
+	font-size: 2.5vh;
+	font-weight: bold;
+	text-transform: capitalize;
+
+	border: none;
+	border: 2px solid black;
+	border-radius: 6px;
+	/*box-shadow: 3px 4px black;*/
+
+	background-color: black;
+	color: white;
+}
+
+.answerButton:hover{
+	background-color: white;
+	border: 2px solid black;
+	color: black;
+
+	transition: background-color .2s, color .2s;
+}
+
+.answerButton:active{
+	background-color: #eee;
+	box-shadow: 0px 0px teal;
+	transform: translateY(4px);
+}
+
+#freeAnswerArea {
+	flex: 1 1 90%;
+}
+
+#freeAnswerArea input{
+	margin-top: 10%;
+	width: 100%;
+	height: 30%;
+	font-size: 6.5vmin;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+
+	height: 3vh;
+	width: 100%;
+	font-size: 2vh;
+	text-align: center;
+	background-color: #000;
+	color: white;
+}
+
+/*______________Toggle Classes_______________*/
+.noDisplay {
+	display: none;
+}
+
+.correct {
+	background-color: green;
+	color: black;
+}
+
+.correct:hover {
+	background-color: green;
+}
+
+.celebrate #checkMark {
+	display: inline;
+	animation: grow .2s linear 1;
+}
+
+.incorrect {
+	background-color: red;
+		color: black;
+
+
+	animation: shake .2s 1 linear;
+
+	box-shadow: none;
+	transform: translateY(4px);
+}
+
+.incorrect:hover{
+	background-color: red;
+	animation: shake .2s 1 linear;
+
+	box-shadow: none;
+	transform: translateY(4px);
+}
+
+
+/*________________Animations___________________*/
+
+@keyframes slowPulseB {
+	0% {}
+	80% {transform: 
+			translate(-38vh,11vh)
+			rotate(10deg)
+		;}
+	90% {transform: 
+			translate(-38vh,11vh)
+			rotate(10deg)
+			scaleX(1.3)
+			scaleY(1.1)
+		;}
+	100% {}
+}
+
+@keyframes slowPulseBB {
+	0% {}
+	80% {transform: 
+			translate(-28vh,12vh)
+		;}
+	90% {transform: 
+			translate(-28vh,12vh)
+			scaleX(1.3)
+			scaleY(1.1)
+		;}
+	100% {}
+}
+
+@keyframes slowPulseBBB {
+	0% {}
+	80% {transform: 
+			translate(-16vh,11vh)
+			scaleX(-1)
+		;}
+	90% {transform: 
+			translate(-16vh,11vh)
+			scaleX(-1.3)
+			scaleY(1.1)
+		;}
+	100% {}
+}
+@keyframes grow {
+	0% {transform: scale(0);}
+	90% {transform: scale(1.15);}
+	100% {transform: scale(1);}
+}
+
+@keyframes slideIn {
+	0% {transform: translateX(-10vh);}
+	100% {transform: translateX(0);}
+}
+
+@keyframes slideOut {
+	0% {transform: translateX(0vh);}
+	100% {transform: translateX(40vh);}
+}
+
+@keyframes shake {
+	0% {
+		transform: translate(0px, 4px);
+		box-shadow: none;
+	}
+	25% {
+		transform: translate(10px, 4px);
+		box-shadow: none;
+	}
+	50% {
+		transform: translate(-8px, 4px);
+		box-shadow: none;
+	}
+	75% {
+		transform: translate(6px, 4px);
+		box-shadow: none;
+	}
+	100% {
+		transform: translate(4px, 4px);
+		box-shadow: none;
+	}
+}
+
+/* 
+daytime
+#87ceeb
+
+nighttime
+#002838
+*/
+@keyframes lightChange {
+	0% {
+		background-color: #87ceeb;
+	}
+	50% {
+		background-color: #002838;
+	}
+	100% {
+		background-color: #87ceeb;
+	}
+}
+
+
+/*______________________Mobile Formatting_____________________*/
+
+/*@media all and (min-width:960px) and (max-width: 1024px) {
+
+  	body {
+  		height: 94vh;
+  	}
+
+  	nav {
+		display: inline;
+		position: absolute;
+		right: 4vh;
+		top: 3vh;
+	}
+
+	nav img {
+		height: 10vh;
+		width: 10vh;
+	}
+
+	#slider {
+		z-index: 2000;
+		position: absolute;
+		right: -4vh;
+		top: -4vh;
+		background-color: black;
+		color: white;
+		width: 50vw;
+		height: 104vh;
+
+		border-left: 1vw solid white;
+	}
+
+	#slideBack {
+		background-color: white;
+		filter: invert();
+		background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/U%2B1F862_WIDE-HEADED_RIGHTWARDS_LIGHT_BARB_ARROW.svg/631px-U%2B1F862_WIDE-HEADED_RIGHTWARDS_LIGHT_BARB_ARROW.svg.png");
+		background-size: contain;
+		background-repeat: no-repeat;
+
+		margin: 2vh 0 0 3vh;
+		height: 7vh;
+		width: 6vh;
+
+		animation: slowPulse 1s infinite;
+	}
+
+	#slider ul {
+		margin-top: 5vh;
+	}
+
+	#slider ul li {
+		list-style: none;
+		font-size: 5vh;
+		text-align: center;
+		margin-bottom: 5vh;
+	}
+
+
+	.slideIn {
+		animation: slideIn .2s linear 1;
+	}
+
+	.slideOut {
+		animation: slideOut .2s linear 1;
+	}
+
+	header {
+		top: 1vh;
+		width: 55%;
+		padding: 0 3vw;
+	}
+
+	header h1 {
+		flex: 1 1 55%;
+
+		font-size: 7vh;
+	}
+
+	header h2 {
+		flex: 1 1 45%;
+		display: none;
+	}
+
+	#wirePic {
+		top: -18vh;
+		height: 235vh;
+		width: 212vh;
+	}
+
+	#bird2 {
+		top: 18vh;
+		right: 27vh;
+	}
+
+	#bird3 {
+		top: 22vh;
+		right: 12vh;
+	}
+
+	#bird4 {
+		top: 23vh;
+		right: 4vh;
+	}
+
+	#quizArea {
+
+		margin: 46vh 3vh 0 3vh;
+		width: 92vw;
+		height: 40vh;
+
+	}
+
+	#frame{
+		display: flex;
+		align-items: column;
+		justify-content: center;
+
+		text-align: center;
+
+		flex: 1 1 70%;
+
+		max-height: 100%;
+		border-radius: 0;
+		margin: 0;
+	}
+
+	#picture {
+		background-position: 50% 50%;
+		background-size: contain;
+	}
+
+	#answers {
+		flex: 1 1 30%;
+		margin-left: 3vh;
+		max-height: 100%;
+	}
+
+	.answerButton {
+		padding: 1.5vh 1vh;
+		letter-spacing: .5vh;
+		font-size: 2vh;
+		font-weight: bold;
+		text-transform: capitalize;
+		box-shadow: 1px 2px teal;
+	}
+
+	footer {
+		bottom: 0vh;
+	}
+}*/
+/*
+@media screen and (max-width: 800px) {
+	body {height: 94vh;}
+  	nav {
+		display: inline;
+		position: absolute;
+		right: 4vh;
+		top: 3vh;
+	}
+	nav img {
+		height: 10vh;
+		width: 10vh;
+	}
+	#slider {
+		z-index: 2000;
+		position: absolute;
+		right: -4vh;
+		top: -4vh;
+		background-color: black;
+		color: white;
+		width: 50vw;
+		height: 104vh;
+		border-left: 1vw solid white;
+	}
+	#slideBack {
+		background-color: white;
+		filter: invert();
+		background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/U%2B1F862_WIDE-HEADED_RIGHTWARDS_LIGHT_BARB_ARROW.svg/631px-U%2B1F862_WIDE-HEADED_RIGHTWARDS_LIGHT_BARB_ARROW.svg.png");
+		background-size: contain;
+		background-repeat: no-repeat;
+		margin: 2vh 0 0 3vh;
+		height: 7vh;
+		width: 6vh;
+		animation: slowPulse 1s infinite;
+	}
+	#slider ul {	margin-top: 5vh;}
+	#slider ul li {
+		list-style: none;
+		font-size: 5vh;
+		text-align: center;
+		margin-bottom: 5vh;
+	}
+	.slideIn {animation: slideIn .2s linear 1;}
+	.slideOut {animation: slideOut .2s linear 1;}
+	header {
+		top: 1vh;
+		width: 55%;
+		padding: 0 3vw;
+	}
+	header h1 {
+		flex: 1 1 55%;
+		font-size: 7vh;
+	}
+	header h2 {
+		flex: 1 1 45%;
+		display: none;
+	}
+	#wirePic {
+		top: -18vh;
+		height: 235vh;
+		width: 212vh;
+	}
+	#bird2 {
+		top: 18vh;
+		right: 27vh;
+	}
+	#bird3 {
+		top: 22vh;
+		right: 12vh;
+	}
+	#bird4 {
+		top: 23vh;
+		right: 4vh;
+	}
+	#quizArea {
+		margin: 46vh 3vh 0 3vh;
+		width: 92vw;
+		height: 40vh;
+	}
+	#frame{
+		display: flex;
+		align-items: column;
+		justify-content: center;
+		text-align: center;
+		flex: 1 1 70%;
+		max-height: 100%;
+		border-radius: 0;
+		margin: 0;
+	}
+	#picture {
+		background-position: 50% 50%;
+		background-size: contain;
+	}
+	#answers {
+		flex: 1 1 30%;
+		margin-left: 3vh;
+		max-height: 100%;
+	}
+	.answerButton {
+		padding: 1.5vh 1vh;
+		letter-spacing: .5vh;
+		font-size: 2vh;
+		font-weight: bold;
+		text-transform: capitalize;
+		box-shadow: 1px 2px teal;
+	}
+	footer {bottom: 0vh;}
+}*/
+
+
+/* Galaxy S7 Portrait */
+/*@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) 
+  and (orientation: portrait) {
+	body {height: 94vh;}
+  	nav {
+		display: inline;
+		position: absolute;
+		right: 4vh;
+		top: 3vh;
+	}
+	nav img {
+		height: 10vh;
+		width: 10vh;
+	}
+	#slider {
+		z-index: 2000;
+		position: absolute;
+		right: -4vh;
+		top: -4vh;
+		background-color: black;
+		color: white;
+		width: 50vw;
+		height: 104vh;
+		border-left: 1vw solid white;
+	}
+	#slideBack {
+		background-color: white;
+		filter: invert();
+		background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/U%2B1F862_WIDE-HEADED_RIGHTWARDS_LIGHT_BARB_ARROW.svg/631px-U%2B1F862_WIDE-HEADED_RIGHTWARDS_LIGHT_BARB_ARROW.svg.png");
+		background-size: contain;
+		background-repeat: no-repeat;
+		margin: 2vh 0 0 3vh;
+		height: 7vh;
+		width: 6vh;
+		animation: slowPulse 1s infinite;
+	}
+	#slider ul {	margin-top: 5vh;}
+	#slider ul li {
+		list-style: none;
+		font-size: 5vh;
+		text-align: center;
+		margin-bottom: 5vh;
+	}
+	.slideIn {animation: slideIn .2s linear 1;}
+	.slideOut {animation: slideOut .2s linear 1;}
+	header {
+		top: 1vh;
+		width: 55%;
+		padding: 0 3vw;
+	}
+	header h1 {
+		flex: 1 1 55%;
+		font-size: 7vh;
+	}
+	header h2 {
+		flex: 1 1 45%;
+		display: none;
+	}
+	#wirePic {
+		top: -18vh;
+		height: 235vh;
+		width: 212vh;
+	}
+	#bird2 {
+		top: 18vh;
+		right: 27vh;
+	}
+	#bird3 {
+		top: 22vh;
+		right: 12vh;
+	}
+	#bird4 {
+		top: 23vh;
+		right: 4vh;
+	}
+	#quizArea {
+		margin: 46vh 3vh 0 3vh;
+		width: 92vw;
+		height: 40vh;
+	}
+	#frame{
+		display: flex;
+		align-items: column;
+		justify-content: center;
+		text-align: center;
+		flex: 1 1 70%;
+		max-height: 100%;
+		border-radius: 0;
+		margin: 0;
+	}
+	#picture {
+		background-position: 50% 50%;
+		background-size: contain;
+	}
+	#answers {
+		flex: 1 1 30%;
+		margin-left: 3vh;
+		max-height: 100%;
+	}
+	.answerButton {
+		padding: 1.5vh 1vh;
+		letter-spacing: .5vh;
+		font-size: 2vh;
+		font-weight: bold;
+		text-transform: capitalize;
+		box-shadow: 1px 2px teal;
+	}
+	footer {bottom: 0vh;}
+}
+
+*/
